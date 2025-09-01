@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dix6cymyucf1n"]
+
+[ext_resource type="PackedScene" uid="uid://twxha84jym36" path="res://scenes/rabbit.tscn" id="1_014kd"]
+[ext_resource type="Texture2D" uid="uid://bi88smalp8txm" path="res://assets/sprites/crackedBeigeBricks.png" id="2_bswci"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_014kd"]
+distance = -435.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rus8k"]
+texture = ExtResource("2_bswci")
+0:0/size_in_atlas = Vector2i(6, 6)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-48, -46, 49, -46, 48.5448, 46.2869, -47.9803, 48.5448)
+
+[sub_resource type="TileSet" id="TileSet_5xbjy"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_rus8k")
+
+[node name="Level1" type="Node2D"]
+
+[node name="LowerBoundary" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LowerBoundary"]
+position = Vector2(570, 10)
+shape = SubResource("WorldBoundaryShape2D_014kd")
+
+[node name="Rabbit" parent="." instance=ExtResource("1_014kd")]
+position = Vector2(486, 199)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_5xbjy")
+format = 2
+layer_0/tile_data = PackedInt32Array(1179678, 0, 0, 1179684, 0, 0, 1179690, 0, 0, 1179696, 0, 0)

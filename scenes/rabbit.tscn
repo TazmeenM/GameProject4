@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://twxha84jym36"]
+
+[ext_resource type="Texture2D" uid="uid://dmwb2l8naxgsb" path="res://assets/sprites/magicianRabbit.png" id="1_dxh4p"]
+[ext_resource type="Script" uid="uid://c2p24m25w3g3b" path="res://scripts/rabbit.gd" id="1_haj5u"]
+[ext_resource type="Texture2D" uid="uid://du805rb511yys" path="res://assets/sprites/rabbitWalkingRight.png" id="2_haj5u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxh4p"]
+atlas = ExtResource("1_dxh4p")
+region = Rect2(0, 0, 49, 99)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_haj5u"]
+atlas = ExtResource("2_haj5u")
+region = Rect2(52, 0, 52, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukfwh"]
+atlas = ExtResource("2_haj5u")
+region = Rect2(0, 0, 52, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybw8e"]
+atlas = ExtResource("2_haj5u")
+region = Rect2(104, 0, 52, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dcyra"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxh4p")
+}],
+"loop": true,
+"name": &"standing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_haj5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukfwh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_haj5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybw8e")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_haj5u"]
+size = Vector2(28, 96)
+
+[node name="Rabbit" type="CharacterBody2D"]
+script = ExtResource("1_haj5u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dcyra")
+animation = &"walking"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_haj5u")
