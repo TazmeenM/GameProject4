@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dix6cymyucf1n"]
+[gd_scene load_steps=12 format=3 uid="uid://dix6cymyucf1n"]
 
-[ext_resource type="PackedScene" uid="uid://twxha84jym36" path="res://scenes/rabbit.tscn" id="1_014kd"]
 [ext_resource type="Texture2D" uid="uid://bi88smalp8txm" path="res://assets/sprites/crackedBeigeBricks.png" id="2_bswci"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_014kd"]
-distance = -435.0
+[ext_resource type="Texture2D" uid="uid://ducc81wj6axv7" path="res://assets/sprites/crackedBeigeBricksSet.png" id="3_5xbjy"]
+[ext_resource type="PackedScene" uid="uid://4bcsmk6gluj3" path="res://scenes/killzone.tscn" id="3_rus8k"]
+[ext_resource type="PackedScene" uid="uid://cfbjnuy57jsn1" path="res://scenes/potion.tscn" id="5_fcfvj"]
+[ext_resource type="PackedScene" uid="uid://bpvjo7n2aravb" path="res://scenes/player.tscn" id="6_fcfvj"]
+[ext_resource type="Texture2D" uid="uid://ufgmune46xyr" path="res://assets/sprites/potionBottle.png" id="6_pa8r4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rus8k"]
 texture = ExtResource("2_bswci")
@@ -12,22 +13,56 @@ texture = ExtResource("2_bswci")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-48, -46, 49, -46, 48.5448, 46.2869, -47.9803, 48.5448)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4nkto"]
+texture = ExtResource("3_5xbjy")
+0:0/size_in_atlas = Vector2i(6, 6)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-48.5448, -45.7224, 46.8513, -45.7224, 47.4158, 46.8513, -47.9803, 46.8513)
+6:0/size_in_atlas = Vector2i(4, 4)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-31.6105, -30.4816, 31.0461, -30.4816, 32.7395, 32.175, -32.175, 31.6105)
+6:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-31.0461, -31.0461, 29.9171, -30.4816, 31.6105, 32.7395, -31.6105, 31.0461)
+
 [sub_resource type="TileSet" id="TileSet_5xbjy"]
 physics_layer_0/collision_layer = 1
+physics_layer_1/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_rus8k")
+sources/3 = SubResource("TileSetAtlasSource_4nkto")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5xbjy"]
+distance = -14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_15mv3"]
+radius = 7.0
 
 [node name="Level1" type="Node2D"]
-
-[node name="LowerBoundary" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LowerBoundary"]
-position = Vector2(570, 10)
-shape = SubResource("WorldBoundaryShape2D_014kd")
-
-[node name="Rabbit" parent="." instance=ExtResource("1_014kd")]
-position = Vector2(486, 199)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_5xbjy")
 format = 2
-layer_0/tile_data = PackedInt32Array(1179678, 0, 0, 1179684, 0, 0, 1179690, 0, 0, 1179696, 0, 0)
+layer_0/tile_data = PackedInt32Array(852017, 393219, 0, 1179696, 3, 0, 1179690, 3, 0, 1179684, 3, 0, 1179678, 3, 0)
+
+[node name="Killzone" parent="." instance=ExtResource("3_rus8k")]
+position = Vector2(539, 433)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("WorldBoundaryShape2D_5xbjy")
+
+[node name="Potion" parent="." instance=ExtResource("5_fcfvj")]
+position = Vector2(572, 211)
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Potion"]
+position = Vector2(28.875, 7.425)
+scale = Vector2(0.57, 0.57)
+texture = ExtResource("6_pa8r4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Potion"]
+position = Vector2(29, 13)
+shape = SubResource("CircleShape2D_15mv3")
+
+[node name="Player" parent="." instance=ExtResource("6_fcfvj")]
+position = Vector2(475, 200)
+collision_layer = 2
+
+[node name="Camera2D" type="Camera2D" parent="Player"]

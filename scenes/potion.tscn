@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfbjnuy57jsn1"]
+
+[ext_resource type="Script" uid="uid://b7achuwtws66r" path="res://scripts/potion.gd" id="1_ym5ma"]
+
+[node name="Potion" type="Area2D"]
+script = ExtResource("1_ym5ma")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
