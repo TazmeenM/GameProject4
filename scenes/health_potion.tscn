@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqlonekg61b38"]
+
+[ext_resource type="Script" uid="uid://m77tmm5fuqya" path="res://scripts/health_potion.gd" id="1_1dg5g"]
+
+[node name="healthPotion" type="Area2D"]
+script = ExtResource("1_1dg5g")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

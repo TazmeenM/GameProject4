@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dix6cymyucf1n"]
+[gd_scene load_steps=13 format=3 uid="uid://dix6cymyucf1n"]
 
 [ext_resource type="Script" uid="uid://5rs3dct3ewud" path="res://scripts/level_1.gd" id="1_pa8r4"]
 [ext_resource type="Texture2D" uid="uid://bi88smalp8txm" path="res://assets/sprites/crackedBeigeBricks.png" id="2_bswci"]
@@ -7,8 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cfbjnuy57jsn1" path="res://scenes/speedPotion.tscn" id="5_fcfvj"]
 [ext_resource type="PackedScene" uid="uid://bpvjo7n2aravb" path="res://scenes/player.tscn" id="6_fcfvj"]
 [ext_resource type="Texture2D" uid="uid://ufgmune46xyr" path="res://assets/sprites/potionBottle.png" id="6_pa8r4"]
-[ext_resource type="PackedScene" uid="uid://bqlonekg61b38" path="res://scenes/health_potion.tscn" id="8_15mv3"]
-[ext_resource type="Texture2D" uid="uid://ct8noxrqu5wwl" path="res://assets/sprites/orangePotionBottle.png" id="9_e3sih"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rus8k"]
 texture = ExtResource("2_bswci")
@@ -37,9 +35,6 @@ distance = -14.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_15mv3"]
 radius = 7.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_e3sih"]
-radius = 12.6127
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_pa8r4")
@@ -73,16 +68,3 @@ position = Vector2(475, 200)
 collision_layer = 3
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-
-[node name="HealthPotion" parent="." instance=ExtResource("8_15mv3")]
-position = Vector2(648, 220)
-
-[node name="Sprite2D" type="Sprite2D" parent="HealthPotion"]
-position = Vector2(-1.96873, -1.83121)
-scale = Vector2(0.557503, 0.557503)
-texture = ExtResource("9_e3sih")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HealthPotion"]
-position = Vector2(-2, 4)
-scale = Vector2(0.555001, 0.555001)
-shape = SubResource("CircleShape2D_e3sih")
