@@ -7,7 +7,7 @@ class_name Player extends CharacterBody2D
 
 
 var potionAffecting = false
-var health = 100
+#var health = 100
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -17,7 +17,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	progress_bar.max_value = 100
-	progress_bar.value = health
+	progress_bar.value = Inventory.health
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -65,17 +65,11 @@ func _on_health_timer_timeout() -> void:
 	print("Health Decreased")
 
 func increaseHealth(healthIncreasedAmount: int) -> void:
-	if health + healthIncreasedAmount < 100:
-		health = health + healthIncreasedAmount
-	else:
-		health = 100
+	Inventory.increaseHealth(healthIncreasedAmount)
 	progress_bar.max_value = 100
-	progress_bar.value = health
+	progress_bar.value = Inventory.health
 
 func decreaseHealth(healthDecreasedAmount: int) -> void:
-	if health - healthDecreasedAmount > 0:
-		health = health - healthDecreasedAmount
-	else:
-		health = 0
+	Inventory.increaseHealth(healthDecreasedAmount)
 	progress_bar.max_value = 100
-	progress_bar.value = health
+	progress_bar.value = Inventory.health

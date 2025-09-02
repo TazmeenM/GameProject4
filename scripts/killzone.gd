@@ -1,5 +1,6 @@
-extends Area2D
+class_name Killzone extends Area2D
 
 
 func _on_body_entered(body: Node2D) -> void:
-	get_tree().reload_current_scene()
+	if body is Player:
+		get_tree().reload_current_scene()

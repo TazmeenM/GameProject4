@@ -16,4 +16,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("useHealthPotion") and Inventory.potions["healthPotion"]["numberOfPotions"] > 0:
 		Inventory.removePotions(1, "healthPotion")
 		player.increaseHealth(Inventory.potions["healthPotion"]["affectingInteger"])
+	if Inventory.health == 0:
+		Inventory.reset()
+		get_tree().reload_current_scene()
 		
