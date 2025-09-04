@@ -6,10 +6,12 @@ var health = 100
 var potions = {
 	"speedPotion": {
 		"numberOfPotions": 0,
+		"numberOfPotionsThisLevel": 0,
 		"affectingInteger": 10
 	},
 	"healthPotion": {
 		"numberOfPotions": 0,
+		"numberOfPotionsThisLevel": 0,
 		"affectingInteger": 5
 	}
 }
@@ -27,9 +29,11 @@ func _process(delta: float) -> void:
 	
 func addPotions(numberOfPotionsAdded: int, potionName: String) -> void:
 	potions[potionName]["numberOfPotions"] += numberOfPotionsAdded
+	potions[potionName]["numberOfPotionsThisLevel"] += numberOfPotionsAdded
 
 func removePotions(numberOfPotionsRemoved: int, potionName: String) -> void:
 	potions[potionName]["numberOfPotions"] -= numberOfPotionsRemoved
+	potions[potionName]["numberOfPotionsThisLevel"] -= numberOfPotionsRemoved
 
 func increaseHealth(healthIncreasedAmount: int) -> void:
 	if health + healthIncreasedAmount < 100:
@@ -46,4 +50,5 @@ func decreaseHealth(healthDecreasedAmount: int) -> void:
 func reset() -> void:
 	health = 100
 	for potion in potions:
-		potions[potion]["numberOfPotions"] = 0
+		potions[potion]["numberOfPotions"] -= potions[potion]["numberOfPotionsThisLevel"]
+		potions[potion]["numberOfPotionsThisLevel"] = 0

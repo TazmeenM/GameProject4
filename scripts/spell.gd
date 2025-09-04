@@ -10,9 +10,11 @@ var strength = 50
 var isMoving = false
 
 func _ready() -> void:
-	isMoving = true
 	originalPositionX = position.x
 	translatedPositionX = originalPositionX
+	
+	#To add a small time frame between when the game loads and when the fireball starts moving
+	reset()
 	movement_timer.start()
 
 func _process(delta: float) -> void:
@@ -34,11 +36,13 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		Inventory.decreaseHealth(strength)
 
+func resetPosition() -> void:
+	position.x = originalPositionX
+	translatedPositionX = originalPositionX
 
 func reset() -> void:
 	isMoving = false
-	position.x = originalPositionX
-	translatedPositionX = originalPositionX
+	resetPosition()
 	reset_timer.start()
 
 func _on_reset_timer_timeout() -> void:

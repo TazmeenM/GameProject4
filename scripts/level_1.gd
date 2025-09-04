@@ -1,22 +1,5 @@
-class_name Level extends Node2D
-
-@onready var player: Player = $Player
+extends Level
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("usePotion") and Inventory.potions["speedPotion"] > 0 and player.potionAffecting == false:
-		Inventory.removePotions(1, "speedPotion")
-		player.potionAffecting = true
-		player.potion_timer.start()
-	if Input.is_action_just_pressed("useHealthPotion") and Inventory.potions["healthPotion"]["numberOfPotions"] > 0:
-		Inventory.removePotions(1, "healthPotion")
-		player.increaseHealth(Inventory.potions["healthPotion"]["affectingInteger"])
-	if Inventory.health == 0:
-		Inventory.reset()
-		get_tree().reload_current_scene()
-		

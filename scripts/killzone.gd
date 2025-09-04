@@ -1,6 +1,8 @@
 class_name Killzone extends Area2D
 
+@onready var respawn_timer: Timer = $RespawnTimer
+@export var level: Level
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		get_tree().reload_current_scene()
+		Inventory.decreaseHealth(100)

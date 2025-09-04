@@ -2,7 +2,7 @@ class_name Player extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var potion_timer: Timer = $PotionTimer
-@onready var health_timer: Timer = $HealthTimer
+#@onready var health_timer: Timer = $HealthTimer
 @onready var progress_bar: ProgressBar = $ProgressBar
 
 
@@ -13,7 +13,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 func _ready() -> void:
-	health_timer.start()
+	pass #health_timer.start()
 
 func _physics_process(delta: float) -> void:
 	progress_bar.max_value = 100
@@ -60,9 +60,9 @@ func _on_potion_timer_timeout() -> void:
 	potionAffecting = false
 
 
-func _on_health_timer_timeout() -> void:
-	decreaseHealth(1)
-	print("Health Decreased")
+#func _on_health_timer_timeout() -> void:
+#	decreaseHealth(1)
+#	print("Health Decreased")
 
 func increaseHealth(healthIncreasedAmount: int) -> void:
 	Inventory.increaseHealth(healthIncreasedAmount)

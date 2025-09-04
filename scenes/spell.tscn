@@ -9,7 +9,7 @@ script = ExtResource("1_ipndw")
 wait_time = 0.01
 
 [node name="ResetTimer" type="Timer" parent="."]
-wait_time = 0.4
+wait_time = 2.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="MovementTimer" to="." method="_on_movement_timer_timeout"]
