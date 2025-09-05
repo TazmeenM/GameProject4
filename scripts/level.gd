@@ -14,7 +14,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("usePotion") and Inventory.potions["speedPotion"] > 0 and player.potionAffecting == false:
+	if Input.is_action_just_pressed("usePotion") and Inventory.potions["speedPotion"]["numberOfPotions"] > 0 and player.potionAffecting == false:
 		Inventory.removePotions(1, "speedPotion")
 		player.potionAffecting = true
 		player.potion_timer.start()
@@ -26,6 +26,8 @@ func _process(delta: float) -> void:
 		fireball.movement_timer.stop()
 		fireball.resetPosition()
 		isResetting = true
+	if Inventory.health == 0 and isResetting:
+		print("Already Resetting")
 		
 
 func _on_respawn_timer_timeout() -> void:

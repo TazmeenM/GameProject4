@@ -2,6 +2,8 @@ extends Node
 
 var numberOfPotions = 0
 var health = 100
+var positionX = 0
+var positionY = 0
 
 var potions = {
 	"speedPotion": {

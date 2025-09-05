@@ -35,6 +35,7 @@ func _on_movement_timer_timeout() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		Inventory.decreaseHealth(strength)
+	reset()
 
 func resetPosition() -> void:
 	position.x = originalPositionX
