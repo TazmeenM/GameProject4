@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnqnc6nki4poh"]
+[gd_scene load_steps=3 format=3 uid="uid://cnqnc6nki4poh"]
 
 [ext_resource type="Script" uid="uid://colbvkoe3rr6b" path="res://scripts/spell.gd" id="1_ipndw"]
+[ext_resource type="PackedScene" uid="uid://b3iu7c17cym6" path="res://scenes/fireball_collision_shape_2d.tscn" id="2_om5k2"]
 
 [node name="Spell" type="Area2D"]
 script = ExtResource("1_ipndw")
@@ -11,7 +12,8 @@ wait_time = 0.01
 [node name="ResetTimer" type="Timer" parent="."]
 wait_time = 2.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="FireballCollisionShape2D" parent="." instance=ExtResource("2_om5k2")]
+position = Vector2(4, 2.5)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="MovementTimer" to="." method="_on_movement_timer_timeout"]

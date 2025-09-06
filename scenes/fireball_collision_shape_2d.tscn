@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3iu7c17cym6"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_cosjk"]
+points = PackedVector2Array(8, -9.5, 22, -13.5, -21, -12.5, -25, -9.5, -27, -6.5, -28, -0.5, -28, 3.5, -26, 7.5, -23, 10.5, -19, 12.5, -15, 13.5, -10, 12.5, -2, 10.5, 7, 8.5, 17, 8.5, 25, 6.5, 12, 5.5, 29, 2.5, 14, -0.5, 31, -3.5, 14, -3.5, 29, -11.5)
+
+[node name="FireballCollisionShape2D" type="CollisionShape2D"]
+shape = SubResource("ConvexPolygonShape2D_cosjk")

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0fdnh382jc2w"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_ao80n"]
+points = PackedVector2Array(-13, 0, -9, 1, -8, 4, -5, 6, -1, 8, 2, 8, 6, 6, 8, 3, 8, 2, 13, 0, 9, -1, 7, -5, 4, -7, 2, -8, -2, -8, -4, -7, -7, -4, -8, -1)
+
+[node name="ElectricBallCollisionShape2D" type="CollisionShape2D"]
+shape = SubResource("ConvexPolygonShape2D_ao80n")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dix6cymyucf1n"]
+[gd_scene load_steps=25 format=3 uid="uid://dix6cymyucf1n"]
 
 [ext_resource type="Script" uid="uid://5rs3dct3ewud" path="res://scripts/level_1.gd" id="1_pa8r4"]
 [ext_resource type="Texture2D" uid="uid://bi88smalp8txm" path="res://assets/sprites/crackedBeigeBricks.png" id="2_bswci"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cnqnc6nki4poh" path="res://scenes/spell.tscn" id="10_2y5yt"]
 [ext_resource type="Texture2D" uid="uid://chftbeest8pck" path="res://assets/sprites/fireball.png" id="11_2os1m"]
 [ext_resource type="PackedScene" uid="uid://dnxwk6gerthcp" path="res://scenes/portal.tscn" id="13_7gny6"]
+[ext_resource type="Texture2D" uid="uid://dra6xy44udxwu" path="res://assets/sprites/electricBall.png" id="14_2aecg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rus8k"]
 texture = ExtResource("2_bswci")
@@ -72,6 +73,9 @@ points = PackedVector2Array(8, -9.5, 22, -13.5, -21, -12.5, -25, -9.5, -27, -6.5
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2aecg"]
 size = Vector2(55, 170)
 
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_6dial"]
+points = PackedVector2Array(-13, 0, -9, 1, -8, 4, -5, 6, -1, 8, 2, 8, 6, 6, 8, 3, 8, 2, 13, 0, 9, -1, 7, -5, 4, -7, 2, -8, -2, -8, -4, -7, -7, -4, -8, -1)
+
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("player", "respawn_timer", "fireball")]
 script = ExtResource("1_pa8r4")
 player = NodePath("Player")
@@ -116,8 +120,6 @@ shape = SubResource("CircleShape2D_15mv3")
 position = Vector2(475, 200)
 collision_layer = 3
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-
 [node name="HealthPotion" parent="." instance=ExtResource("8_15mv3")]
 position = Vector2(648, 220)
 
@@ -133,7 +135,6 @@ shape = SubResource("CircleShape2D_e3sih")
 
 [node name="Spell" parent="." instance=ExtResource("10_2y5yt")]
 position = Vector2(705, 223)
-direction = "left"
 
 [node name="Sprite2D" type="Sprite2D" parent="Spell"]
 position = Vector2(87, -4)
@@ -154,6 +155,15 @@ sceneTeleportedTo = "dungeon_1"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal"]
 position = Vector2(1.5, -9)
 shape = SubResource("RectangleShape2D_2aecg")
+
+[node name="Spell2" parent="." instance=ExtResource("10_2y5yt")]
+position = Vector2(980, 178)
+
+[node name="Sprite2D" type="Sprite2D" parent="Spell2"]
+texture = ExtResource("14_2aecg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spell2"]
+shape = SubResource("ConvexPolygonShape2D_6dial")
 
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
 [connection signal="timeout" from="RespawnTimer" to="Killzone" method="_on_respawn_timer_timeout"]
