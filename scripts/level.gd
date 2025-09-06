@@ -9,11 +9,12 @@ var isResetting = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	print("Testing Dungeon")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	print("Testing")
 	if Input.is_action_just_pressed("usePotion") and Inventory.potions["speedPotion"]["numberOfPotions"] > 0 and player.potionAffecting == false:
 		Inventory.removePotions(1, "speedPotion")
 		player.potionAffecting = true
@@ -26,11 +27,13 @@ func _process(delta: float) -> void:
 		fireball.movement_timer.stop()
 		fireball.resetPosition()
 		isResetting = true
+		print("Resetting")
 	if Inventory.health == 0 and isResetting:
 		print("Already Resetting")
 		
 
 func _on_respawn_timer_timeout() -> void:
+	print("Respawn Timer Timeout")
 	isResetting = false
 	respawn_timer.stop()
 	Inventory.reset()

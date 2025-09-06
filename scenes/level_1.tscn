@@ -66,8 +66,8 @@ radius = 7.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_e3sih"]
 radius = 12.6127
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2os1m"]
-radius = 13.0
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_7gny6"]
+points = PackedVector2Array(8, -9.5, 22, -13.5, -21, -12.5, -25, -9.5, -27, -6.5, -28, -0.5, -28, 3.5, -26, 7.5, -23, 10.5, -19, 12.5, -15, 13.5, -10, 12.5, -2, 10.5, 7, 8.5, 17, 8.5, 25, 6.5, 12, 5.5, 29, 2.5, 14, -0.5, 31, -3.5, 14, -3.5, 29, -11.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2aecg"]
 size = Vector2(55, 170)
@@ -136,13 +136,13 @@ position = Vector2(705, 223)
 direction = "left"
 
 [node name="Sprite2D" type="Sprite2D" parent="Spell"]
-position = Vector2(84, -1)
+position = Vector2(87, -4)
 scale = Vector2(0.814286, 0.814286)
 texture = ExtResource("11_2os1m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spell"]
-position = Vector2(68, 0)
-shape = SubResource("CircleShape2D_2os1m")
+position = Vector2(86, -3)
+shape = SubResource("ConvexPolygonShape2D_7gny6")
 
 [node name="RespawnTimer" type="Timer" parent="."]
 wait_time = 0.2
