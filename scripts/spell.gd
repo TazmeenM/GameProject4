@@ -81,8 +81,8 @@ func setSprite() -> void:
 func setCollisionShape() -> void:
 	if collider:
 		collider.queue_free()
-	var colliderLoader:PackedScene = load(spells[spellName]["collisionShapePath"])
-	collider = colliderLoader.instance()
+		var colliderLoader:PackedScene = load(spells[spellName]["collisionShapePath"])
+		collider = colliderLoader.instantiate()
 
 func _on_reset_timer_timeout() -> void:
 	reset_timer.stop()
