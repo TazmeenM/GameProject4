@@ -57,6 +57,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	Inventory.positionX = position.x
 	Inventory.positionY = position.y
+	
+	#Getting the inventory slot chosen
+	for i in range(1, 10):
+		if Input.is_action_just_pressed("chooseSlot" + str(i)):
+			if i == 0:
+				InventoryPanel.slotSelected = 9
+			else:
+				InventoryPanel.slotSelected = i - 1
+			print(i)
 
 
 func _on_potion_timer_timeout() -> void:

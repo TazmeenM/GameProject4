@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxumlyj8k74tg"]
+[gd_scene load_steps=11 format=3 uid="uid://bxumlyj8k74tg"]
 
 [ext_resource type="Script" uid="uid://ch8b1bmxylc6r" path="res://scripts/dungeon_1.gd" id="1_2ws2y"]
 [ext_resource type="PackedScene" uid="uid://bpvjo7n2aravb" path="res://scenes/player.tscn" id="2_13b8m"]
 [ext_resource type="Texture2D" uid="uid://vf42ugbm7erx" path="res://assets/sprites/tilemapPurple.png" id="3_he162"]
 [ext_resource type="PackedScene" uid="uid://cnqnc6nki4poh" path="res://scenes/spell.tscn" id="4_3a3m1"]
+[ext_resource type="PackedScene" uid="uid://6to688b2j4to" path="res://scenes/inventory_panel.tscn" id="4_xtwae"]
 [ext_resource type="PackedScene" uid="uid://c55gcob0s1lbi" path="res://scenes/enemy.tscn" id="6_3a3m1"]
 [ext_resource type="PackedScene" uid="uid://4bcsmk6gluj3" path="res://scenes/killzone.tscn" id="6_he162"]
 
@@ -50,6 +51,12 @@ layer_2/tile_data = PackedInt32Array(1441835, 393216, 0, 1376296, 655360, 0, 150
 
 [node name="Player" parent="." instance=ExtResource("2_13b8m")]
 position = Vector2(332, 343)
+
+[node name="InventoryPanel" parent="Player" instance=ExtResource("4_xtwae")]
+offset_left = -193.0
+offset_top = 233.0
+offset_right = 285.0
+offset_bottom = 284.0
 
 [node name="Spell" parent="." instance=ExtResource("4_3a3m1")]
 position = Vector2(689, 356)

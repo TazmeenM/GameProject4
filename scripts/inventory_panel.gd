@@ -17,12 +17,22 @@ var inventorySlots = {
 	"slot1": {
 		"button": slot,
 		"imagePath": "res://assets/sprites/speedPotion.png"
+	},
+	"slot2": {
+		"button": slot_2,
+		"imagePath": "res://assets/sprites/healthPotion.png"
 	}
 }
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	var slots = [slot, slot_2, slot_3, slot_4, slot_5, slot_6, slot_7, slot_8, slot_9, slot_10]
+	for i in range(inventorySlots.size()):
+		inventorySlots["slot" + str(i + 1)]["button"] = slots[i]
+	for slot in inventorySlots:
+		inventorySlots[slot]["button"].icon = load(inventorySlots[slot]["imagePath"])
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
