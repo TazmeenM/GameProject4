@@ -50,8 +50,9 @@ layer_2/name = "ProjectileTiles"
 layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(1441835, 393216, 0, 1376296, 655360, 0, 1507368, 655360, 0)
 
-[node name="Player" parent="." instance=ExtResource("2_13b8m")]
+[node name="Player" parent="." node_paths=PackedStringArray("enemiesArray") instance=ExtResource("2_13b8m")]
 position = Vector2(332, 343)
+enemiesArray = [NodePath("../Enemy1"), NodePath("../Enemy2")]
 
 [node name="InventoryPanel" parent="Player" instance=ExtResource("4_xtwae")]
 offset_left = -193.0

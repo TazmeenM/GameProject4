@@ -5,10 +5,13 @@ class_name Player extends CharacterBody2D
 #@onready var health_timer: Timer = $HealthTimer
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var player_spell: Area2D = $PlayerSpell
+@onready var attack_timer: Timer = $AttackTimer
+@export var enemiesArray: Array[Enemy] = []
 
 
 var potionAffecting = false
 #var health = 100
+var isAttacking = false
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -68,6 +71,18 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.play("firingSpell")
 		print("Spell Fired")
 	
+	#Attacking/Punching
+	if Input.is_action_just_pressed("attack"):
+		if !isAttacking:
+			isAttacking = true
+			for enemy in enemiesArray:
+				if abs(enemy.position.x - position.x) < 100:
+					enemy.decreaseHealth(10)
+			
+			attack_timer.start()
+		
+		 
+	
 	#Getting the inventory slot chosen
 	for i in range(1, 10):
 		if Input.is_action_just_pressed("chooseSlot" + str(i)):
@@ -95,3 +110,8 @@ func decreaseHealth(healthDecreasedAmount: int) -> void:
 	Inventory.increaseHealth(healthDecreasedAmount)
 	progress_bar.max_value = 100
 	progress_bar.value = Inventory.health
+
+
+func _on_attack_timer_timeout() -> void:
+	attack_timer.stop()
+	isAttacking = false
