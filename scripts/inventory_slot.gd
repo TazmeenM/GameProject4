@@ -1,6 +1,7 @@
 extends Button
 
 @onready var label: Label = $Label
+@onready var slot_number: Label = $SlotNumber
 
 
 # Called when the node enters the scene tree for the first time.

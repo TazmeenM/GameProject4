@@ -1,9 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpvjo7n2aravb"]
+[gd_scene load_steps=14 format=3 uid="uid://bpvjo7n2aravb"]
 
 [ext_resource type="Texture2D" uid="uid://dmwb2l8naxgsb" path="res://assets/sprites/magicianRabbit.png" id="1_dxh4p"]
 [ext_resource type="Script" uid="uid://bmpx0ed5ed2qv" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://du805rb511yys" path="res://assets/sprites/rabbitWalkingRight.png" id="2_haj5u"]
+[ext_resource type="Texture2D" uid="uid://bhr1p64cjob4o" path="res://assets/sprites/rabbitFiringSpell.png" id="2_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://dim73agk8kotp" path="res://scenes/player_spell.tscn" id="4_dqkch"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(0, 0, 52, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
+atlas = ExtResource("2_qlg0r")
+region = Rect2(52, 0, 52, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dxh4p"]
 atlas = ExtResource("1_dxh4p")
@@ -23,6 +32,17 @@ region = Rect2(104, 0, 52, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dcyra"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuyoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjrip")
+}],
+"loop": true,
+"name": &"firingSpell",
+"speed": 1.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dxh4p")
@@ -59,7 +79,7 @@ script = ExtResource("1_qhqgy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dcyra")
-animation = &"walking"
+animation = &"firingSpell"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 0)

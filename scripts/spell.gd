@@ -58,8 +58,10 @@ func _process(delta: float) -> void:
 func _on_movement_timer_timeout() -> void:
 	if isMoving:
 		if direction == "right":
+			sprite_2d.flip_h = true
 			translatedPositionX += 10
 		elif direction == "left":
+			sprite_2d.flip_h = false
 			translatedPositionX -= 10
 		if abs(translatedPositionX - originalPositionX) > 300:
 			reset()

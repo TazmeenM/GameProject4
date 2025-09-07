@@ -65,6 +65,7 @@ func _physics_process(delta: float) -> void:
 	#Firing spells
 	if Input.is_action_just_pressed("fireSpell"):
 		player_spell.fireSpell()
+		animated_sprite_2d.play("firingSpell")
 		print("Spell Fired")
 	
 	#Getting the inventory slot chosen

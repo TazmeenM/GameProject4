@@ -1,8 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://cfbjnuy57jsn1"]
+[gd_scene load_steps=4 format=3 uid="uid://cfbjnuy57jsn1"]
 
 [ext_resource type="Script" uid="uid://ck3m0solg05io" path="res://scripts/speedPotion.gd" id="1_ym5ma"]
+[ext_resource type="Texture2D" uid="uid://ufgmune46xyr" path="res://assets/sprites/potionBottle.png" id="2_bd8mf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_now1v"]
+radius = 7.0
 
 [node name="SpeedPotion" type="Area2D"]
+collision_mask = 3
 script = ExtResource("1_ym5ma")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.125, -6.175)
+scale = Vector2(0.57, 0.57)
+texture = ExtResource("2_bd8mf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.25, -0.6)
+shape = SubResource("CircleShape2D_now1v")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

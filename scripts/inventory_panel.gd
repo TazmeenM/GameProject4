@@ -35,6 +35,12 @@ func _ready() -> void:
 		inventorySlots["slot" + str(i + 1)]["button"] = slots[i]
 		inventorySlots["slot" + str(i + 1)]["numberOfUnits"] = Inventory.potions[Inventory.potions.keys()[i]]["numberOfPotions"]
 		inventorySlots["slot" + str(i + 1)]["button"].get_node("Label").text = str(Inventory.potions[Inventory.potions.keys()[i]]["numberOfPotions"])
+		if i == 10:
+			inventorySlots["slot" + str(i + 1)]["button"].get_node("SlotNumber").text = "0"
+		else:
+			inventorySlots["slot" + str(i + 1)]["button"].get_node("SlotNumber").text = str(i + 1)
+
+			
 	for slot in inventorySlots:
 		inventorySlots[slot]["button"].icon = load(inventorySlots[slot]["imagePath"])
 

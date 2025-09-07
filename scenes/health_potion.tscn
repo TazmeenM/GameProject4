@@ -1,8 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqlonekg61b38"]
+[gd_scene load_steps=4 format=3 uid="uid://bqlonekg61b38"]
 
 [ext_resource type="Script" uid="uid://m77tmm5fuqya" path="res://scripts/health_potion.gd" id="1_1dg5g"]
+[ext_resource type="Texture2D" uid="uid://ct8noxrqu5wwl" path="res://assets/sprites/orangePotionBottle.png" id="2_np0hw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gan2x"]
+radius = 12.6127
 
 [node name="healthPotion" type="Area2D"]
+collision_mask = 3
 script = ExtResource("1_1dg5g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.96873, -1.83121)
+scale = Vector2(0.557503, 0.557503)
+texture = ExtResource("2_np0hw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 4)
+scale = Vector2(0.555001, 0.555001)
+shape = SubResource("CircleShape2D_gan2x")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
