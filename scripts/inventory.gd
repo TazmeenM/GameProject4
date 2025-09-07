@@ -4,17 +4,23 @@ var numberOfPotions = 0
 var health = 100
 var positionX = 0
 var positionY = 0
+var imageRoot = "res://assets/sprites/"
+var slotSelected = 0
 
 var potions = {
 	"speedPotion": {
+		"itemNumber": 0,
 		"numberOfPotions": 0,
 		"numberOfPotionsThisLevel": 0,
-		"affectingInteger": 10
+		"affectingInteger": 10,
+		"imagePath": imageRoot + "speedPotion" + ".png"
 	},
 	"healthPotion": {
+		"itemNumber": 1,
 		"numberOfPotions": 0,
 		"numberOfPotionsThisLevel": 0,
-		"affectingInteger": 5
+		"affectingInteger": 5,
+		"imagePath": imageRoot + "healthPotion" + ".png"
 	}
 }
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dix6cymyucf1n"]
+[gd_scene load_steps=22 format=3 uid="uid://dix6cymyucf1n"]
 
 [ext_resource type="Script" uid="uid://5rs3dct3ewud" path="res://scripts/level_1.gd" id="1_pa8r4"]
 [ext_resource type="Texture2D" uid="uid://bi88smalp8txm" path="res://assets/sprites/crackedBeigeBricks.png" id="2_bswci"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bpvjo7n2aravb" path="res://scenes/player.tscn" id="6_fcfvj"]
 [ext_resource type="Texture2D" uid="uid://ufgmune46xyr" path="res://assets/sprites/potionBottle.png" id="6_pa8r4"]
 [ext_resource type="PackedScene" uid="uid://bqlonekg61b38" path="res://scenes/health_potion.tscn" id="8_15mv3"]
+[ext_resource type="PackedScene" uid="uid://6to688b2j4to" path="res://scenes/inventory_panel.tscn" id="9_7gny6"]
 [ext_resource type="Texture2D" uid="uid://ct8noxrqu5wwl" path="res://assets/sprites/orangePotionBottle.png" id="9_e3sih"]
 [ext_resource type="PackedScene" uid="uid://cnqnc6nki4poh" path="res://scenes/spell.tscn" id="10_2y5yt"]
 [ext_resource type="PackedScene" uid="uid://dnxwk6gerthcp" path="res://scenes/portal.tscn" id="13_7gny6"]
@@ -111,6 +112,12 @@ shape = SubResource("CircleShape2D_15mv3")
 [node name="Player" parent="." instance=ExtResource("6_fcfvj")]
 position = Vector2(475, 200)
 collision_layer = 3
+
+[node name="InventoryPanel" parent="Player" instance=ExtResource("9_7gny6")]
+offset_left = -193.0
+offset_top = 233.0
+offset_right = 285.0
+offset_bottom = 284.0
 
 [node name="HealthPotion" parent="." instance=ExtResource("8_15mv3")]
 position = Vector2(648, 220)

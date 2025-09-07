@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cusaboteoa60s"]
+
+[node name="InventorySlot" type="Button"]
+offset_right = 39.0
+offset_bottom = 39.0

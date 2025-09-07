@@ -14,13 +14,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("usePotion") and Inventory.potions["speedPotion"]["numberOfPotions"] > 0 and player.potionAffecting == false:
-		Inventory.removePotions(1, "speedPotion")
-		player.potionAffecting = true
-		player.potion_timer.start()
-	if Input.is_action_just_pressed("useHealthPotion") and Inventory.potions["healthPotion"]["numberOfPotions"] > 0:
-		Inventory.removePotions(1, "healthPotion")
-		player.increaseHealth(Inventory.potions["healthPotion"]["affectingInteger"])
+	if InventoryPanel.slotSelected == 0:
+		if Input.is_action_just_pressed("usePotion") and Inventory.potions["speedPotion"]["numberOfPotions"] > 0 and player.potionAffecting == false:
+			speedPotionUsed()
+	elif InventoryPanel.slotSelected == 1:
+		if Input.is_action_just_pressed("usePotion") and Inventory.potions["healthPotion"]["numberOfPotions"] > 0:
+			healthPotionUsed()
 	if Inventory.health == 0 and !isResetting:
 		respawn_timer.start()
 		fireball.movement_timer.stop()
@@ -37,3 +36,12 @@ func _on_respawn_timer_timeout() -> void:
 	respawn_timer.stop()
 	Inventory.reset()
 	get_tree().reload_current_scene()
+	
+func speedPotionUsed() -> void:
+	Inventory.removePotions(1, "speedPotion")
+	player.potionAffecting = true
+	player.potion_timer.start()
+
+func healthPotionUsed() -> void:
+	Inventory.removePotions(1, "healthPotion")
+	player.increaseHealth(Inventory.potions["healthPotion"]["affectingInteger"])

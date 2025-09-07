@@ -1,0 +1,98 @@
+[gd_scene load_steps=3 format=3 uid="uid://6to688b2j4to"]
+
+[ext_resource type="Script" uid="uid://ev7ejp6u8l2a" path="res://scripts/inventory_panel.gd" id="1_u4feb"]
+[ext_resource type="PackedScene" uid="uid://cusaboteoa60s" path="res://scenes/inventory_slot.tscn" id="2_curve"]
+
+[node name="InventoryPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 478.0
+offset_bottom = 51.0
+script = ExtResource("1_u4feb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 478.0
+offset_bottom = 51.0
+color = Color(0.00566666, 0, 0.17, 0.341176)
+
+[node name="InventorySlot" parent="." instance=ExtResource("2_curve")]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 46.0
+offset_bottom = 45.0
+
+[node name="InventorySlot2" parent="." instance=ExtResource("2_curve")]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 6.0
+offset_right = 93.0
+offset_bottom = 45.0
+
+[node name="InventorySlot3" parent="." instance=ExtResource("2_curve")]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 6.0
+offset_right = 140.0
+offset_bottom = 45.0
+
+[node name="InventorySlot4" parent="." instance=ExtResource("2_curve")]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 6.0
+offset_right = 187.0
+offset_bottom = 45.0
+
+[node name="InventorySlot5" parent="." instance=ExtResource("2_curve")]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 6.0
+offset_right = 234.0
+offset_bottom = 45.0
+
+[node name="InventorySlot6" parent="." instance=ExtResource("2_curve")]
+layout_mode = 0
+offset_left = 242.0
+offset_top = 6.0
+offset_right = 281.0
+offset_bottom = 45.0
+
+[node name="InventorySlot7" parent="." instance=ExtResource("2_curve")]
+layout_mode = 0
+offset_left = 289.0
+offset_top = 6.0
+offset_right = 328.0
+offset_bottom = 45.0
+
+[node name="InventorySlot8" parent="." instance=ExtResource("2_curve")]
+layout_mode = 0
+offset_left = 336.0
+offset_top = 6.0
+offset_right = 375.0
+offset_bottom = 45.0
+
+[node name="InventorySlot9" parent="." instance=ExtResource("2_curve")]
+layout_mode = 0
+offset_left = 383.0
+offset_top = 6.0
+offset_right = 422.0
+offset_bottom = 45.0
+
+[node name="InventorySlot10" parent="." instance=ExtResource("2_curve")]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 6.0
+offset_right = 469.0
+offset_bottom = 45.0
+
+[connection signal="pressed" from="InventorySlot" to="." method="_on_inventory_slot_pressed"]
+[connection signal="pressed" from="InventorySlot2" to="." method="_on_inventory_slot_2_pressed"]
+[connection signal="pressed" from="InventorySlot3" to="." method="_on_inventory_slot_3_pressed"]
+[connection signal="pressed" from="InventorySlot4" to="." method="_on_inventory_slot_4_pressed"]
+[connection signal="pressed" from="InventorySlot5" to="." method="_on_inventory_slot_5_pressed"]
+[connection signal="pressed" from="InventorySlot6" to="." method="_on_inventory_slot_6_pressed"]
+[connection signal="pressed" from="InventorySlot7" to="." method="_on_inventory_slot_7_pressed"]
+[connection signal="pressed" from="InventorySlot8" to="." method="_on_inventory_slot_8_pressed"]
+[connection signal="pressed" from="InventorySlot9" to="." method="_on_inventory_slot_9_pressed"]
+[connection signal="pressed" from="InventorySlot10" to="." method="_on_inventory_slot_10_pressed"]
