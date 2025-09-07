@@ -4,6 +4,8 @@ extends Area2D
 @onready var reset_timer: Timer = $ResetTimer
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
+
+
 @export var direction: String = "left"
 @export var spellName: String = "fireball"
 
@@ -28,7 +30,7 @@ var spells = {
 		"strength": 40,
 		"distance": 500,
 		"imagePath": imageRoot + "electricBall" + ".png",
-		"collisionShapePath": collisionShapeRoot + "electricBall" + collisionShapeEnding
+		"collisionShapePath": collisionShapeRoot + "electric_ball" + collisionShapeEnding
 	}
 }
 
@@ -79,10 +81,14 @@ func setSprite() -> void:
 	sprite_2d.texture = load(spells[spellName]["imagePath"])
 	
 func setCollisionShape() -> void:
-	if collider:
-		collider.queue_free()
+	if !collider:
+		#collider.queue_free()
 		var colliderLoader:PackedScene = load(spells[spellName]["collisionShapePath"])
+		print(spellName)
 		collider = colliderLoader.instantiate()
+		collider.position.x = 0
+		collider.position.y = 0
+		add_child(collider)
 
 func _on_reset_timer_timeout() -> void:
 	reset_timer.stop()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dix6cymyucf1n"]
+[gd_scene load_steps=21 format=3 uid="uid://dix6cymyucf1n"]
 
 [ext_resource type="Script" uid="uid://5rs3dct3ewud" path="res://scripts/level_1.gd" id="1_pa8r4"]
 [ext_resource type="Texture2D" uid="uid://bi88smalp8txm" path="res://assets/sprites/crackedBeigeBricks.png" id="2_bswci"]
@@ -11,9 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bqlonekg61b38" path="res://scenes/health_potion.tscn" id="8_15mv3"]
 [ext_resource type="Texture2D" uid="uid://ct8noxrqu5wwl" path="res://assets/sprites/orangePotionBottle.png" id="9_e3sih"]
 [ext_resource type="PackedScene" uid="uid://cnqnc6nki4poh" path="res://scenes/spell.tscn" id="10_2y5yt"]
-[ext_resource type="Texture2D" uid="uid://chftbeest8pck" path="res://assets/sprites/fireball.png" id="11_2os1m"]
 [ext_resource type="PackedScene" uid="uid://dnxwk6gerthcp" path="res://scenes/portal.tscn" id="13_7gny6"]
-[ext_resource type="Texture2D" uid="uid://dra6xy44udxwu" path="res://assets/sprites/electricBall.png" id="14_2aecg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rus8k"]
 texture = ExtResource("2_bswci")
@@ -67,14 +65,8 @@ radius = 7.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_e3sih"]
 radius = 12.6127
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_7gny6"]
-points = PackedVector2Array(8, -9.5, 22, -13.5, -21, -12.5, -25, -9.5, -27, -6.5, -28, -0.5, -28, 3.5, -26, 7.5, -23, 10.5, -19, 12.5, -15, 13.5, -10, 12.5, -2, 10.5, 7, 8.5, 17, 8.5, 25, 6.5, 12, 5.5, 29, 2.5, 14, -0.5, 31, -3.5, 14, -3.5, 29, -11.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2aecg"]
 size = Vector2(55, 170)
-
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_6dial"]
-points = PackedVector2Array(-13, 0, -9, 1, -8, 4, -5, 6, -1, 8, 2, 8, 6, 6, 8, 3, 8, 2, 13, 0, 9, -1, 7, -5, 4, -7, 2, -8, -2, -8, -4, -7, -7, -4, -8, -1)
 
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("player", "respawn_timer", "fireball")]
 script = ExtResource("1_pa8r4")
@@ -134,16 +126,7 @@ scale = Vector2(0.555001, 0.555001)
 shape = SubResource("CircleShape2D_e3sih")
 
 [node name="Spell" parent="." instance=ExtResource("10_2y5yt")]
-position = Vector2(705, 223)
-
-[node name="Sprite2D" type="Sprite2D" parent="Spell"]
-position = Vector2(87, -4)
-scale = Vector2(0.814286, 0.814286)
-texture = ExtResource("11_2os1m")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spell"]
-position = Vector2(86, -3)
-shape = SubResource("ConvexPolygonShape2D_7gny6")
+position = Vector2(781, 223)
 
 [node name="RespawnTimer" type="Timer" parent="."]
 wait_time = 0.2
@@ -158,12 +141,6 @@ shape = SubResource("RectangleShape2D_2aecg")
 
 [node name="Spell2" parent="." instance=ExtResource("10_2y5yt")]
 position = Vector2(980, 178)
-
-[node name="Sprite2D" type="Sprite2D" parent="Spell2"]
-texture = ExtResource("14_2aecg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spell2"]
-shape = SubResource("ConvexPolygonShape2D_6dial")
 
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
 [connection signal="timeout" from="RespawnTimer" to="Killzone" method="_on_respawn_timer_timeout"]

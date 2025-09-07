@@ -9,12 +9,11 @@ var isResetting = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("Testing Dungeon")
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print("Testing")
 	if Input.is_action_just_pressed("usePotion") and Inventory.potions["speedPotion"]["numberOfPotions"] > 0 and player.potionAffecting == false:
 		Inventory.removePotions(1, "speedPotion")
 		player.potionAffecting = true
