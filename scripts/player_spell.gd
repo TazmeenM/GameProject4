@@ -100,7 +100,6 @@ func setCollisionShape() -> void:
 
 func _on_reset_timer_timeout() -> void:
 	reset_timer.stop()
-	isMoving = true
 
 func fireSpell() -> void:
 	if reset_timer.is_stopped() and movement_timer.is_stopped():
