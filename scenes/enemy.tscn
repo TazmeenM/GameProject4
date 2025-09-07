@@ -49,6 +49,8 @@ animations = [{
 }]
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("1_7p1mj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -57,6 +59,13 @@ animation = &"enemy1Walking"
 
 [node name="RayCast2DRight" type="RayCast2D" parent="."]
 target_position = Vector2(16, 0)
+collision_mask = 3
 
 [node name="RayCast2DLeft" type="RayCast2D" parent="."]
 target_position = Vector2(-11, 0)
+collision_mask = 3
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

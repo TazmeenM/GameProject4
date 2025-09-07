@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://colbvkoe3rr6b" path="res://scripts/spell.gd" id="1_ipndw"]
 
 [node name="Spell" type="Area2D"]
+collision_mask = 3
 script = ExtResource("1_ipndw")
 
 [node name="MovementTimer" type="Timer" parent="."]

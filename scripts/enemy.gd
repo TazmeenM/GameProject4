@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var ray_cast_2d_right: RayCast2D = $RayCast2DRight
 @onready var ray_cast_2d_left: RayCast2D = $RayCast2DLeft
+@onready var attack_timer: Timer = $AttackTimer
 
 @export var enemyName: String = "enemy1"
 var direction = 0
@@ -16,6 +17,7 @@ var imagePath = "res://assets/sprites/"
 var collisionShapeRoot = "res://scenes/"
 var collisionShapeEnding = "_collision_shape_2d.tscn"
 var collider: CollisionShape2D
+var attacking = true
 
 var enemies = {
 	"enemy1": {
@@ -28,6 +30,7 @@ var enemies = {
 
 func _ready() -> void:
 	setCollisionShape()
+	attacking = true
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -36,8 +39,21 @@ func _physics_process(delta: float) -> void:
 
 	followPlayer()
 	animate()
+	#Checking if the enemy is colliding with/getting stuck on a part of the TileMap, and jumping if it is
+	if ray_cast_2d_right.is_colliding() or ray_cast_2d_left.is_colliding():
+		if ray_cast_2d_right.get_collider() is TileMap or ray_cast_2d_left.get_collider() is TileMap:
+			jump()
+		elif ray_cast_2d_right.get_collider() is Player or ray_cast_2d_left.get_collider() is Player:
+			print("Attacking")
+			if attacking:
+				Inventory.decreaseHealth(enemies[enemyName]["strength"])
+				attacking = false
+				attack_timer.start()
+				
 
 	move_and_slide()
+	
+	
 	
 func setCollisionShape() -> void:
 	if !collider:
@@ -54,9 +70,6 @@ func followPlayer() -> void:
 	elif (position.x - Inventory.positionX < 0):
 		direction = 1
 	velocity.x = direction * SPEED
-	if ray_cast_2d_right.is_colliding() or ray_cast_2d_left.is_colliding():
-		if ray_cast_2d_right.get_collider() is TileMap or ray_cast_2d_left.get_collider() is TileMap:
-			jump()
 
 func jump() -> void:
 	velocity.y = JUMP_VELOCITY
@@ -73,3 +86,7 @@ func animate() -> void:
 	else:
 		animated_sprite_2d.play(enemyName + "Walking")
 	
+
+
+func _on_attack_timer_timeout() -> void:
+	attacking = true
