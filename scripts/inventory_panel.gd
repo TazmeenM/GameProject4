@@ -16,11 +16,13 @@ static var slotSelected = 0
 var inventorySlots = {
 	"slot1": {
 		"button": slot,
-		"imagePath": "res://assets/sprites/speedPotion.png"
+		"imagePath": "res://assets/sprites/speedPotion.png",
+		"numberOfUnits": 0
 	},
 	"slot2": {
 		"button": slot_2,
-		"imagePath": "res://assets/sprites/healthPotion.png"
+		"imagePath": "res://assets/sprites/healthPotion.png",
+		"numberOfUnits": 0
 	}
 }
 
@@ -31,13 +33,17 @@ func _ready() -> void:
 	var slots = [slot, slot_2, slot_3, slot_4, slot_5, slot_6, slot_7, slot_8, slot_9, slot_10]
 	for i in range(inventorySlots.size()):
 		inventorySlots["slot" + str(i + 1)]["button"] = slots[i]
+		inventorySlots["slot" + str(i + 1)]["numberOfUnits"] = Inventory.potions[Inventory.potions.keys()[i]]["numberOfPotions"]
+		inventorySlots["slot" + str(i + 1)]["button"].get_node("Label").text = str(Inventory.potions[Inventory.potions.keys()[i]]["numberOfPotions"])
 	for slot in inventorySlots:
 		inventorySlots[slot]["button"].icon = load(inventorySlots[slot]["imagePath"])
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	for i in range(inventorySlots.size()):
+		inventorySlots["slot" + str(i + 1)]["numberOfUnits"] = Inventory.potions[Inventory.potions.keys()[i]]["numberOfPotions"]
+		inventorySlots["slot" + str(i + 1)]["button"].get_node("Label").text = str(Inventory.potions[Inventory.potions.keys()[i]]["numberOfPotions"])
 
 
 
