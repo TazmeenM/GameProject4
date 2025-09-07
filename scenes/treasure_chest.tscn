@@ -24,5 +24,17 @@ offset_bottom = -21.0
 theme_override_font_sizes/font_size = 12
 text = "Press \"E\" to open chest"
 
+[node name="ItemEarnedLabel" type="Label" parent="."]
+offset_left = -66.0
+offset_top = -67.0
+offset_right = 66.0
+offset_bottom = -44.0
+text = "+1 Health Potion"
+horizontal_alignment = 1
+
+[node name="ItemEarnedLabelTimer" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="ItemEarnedLabelTimer" to="." method="_on_items_earned_label_timer_timeout"]
