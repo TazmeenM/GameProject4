@@ -50,10 +50,13 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 		if potionAffecting:
 			velocity.x = velocity.x * 2
+		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	Inventory.positionX = position.x
+	Inventory.positionY = position.y
 
 
 func _on_potion_timer_timeout() -> void:

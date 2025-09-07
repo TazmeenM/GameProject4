@@ -42,6 +42,10 @@ func _ready() -> void:
 	distance = spells[spellName]["distance"]
 	setSprite()
 	setCollisionShape()
+	sprite_2d.position.x = 0
+	sprite_2d.position.y = 0
+	collider.position.x = 0
+	collider.position.y = 0
 	
 	#To add a small time frame between when the game loads and when the fireball starts moving
 	reset()
@@ -79,15 +83,15 @@ func reset() -> void:
 
 func setSprite() -> void:
 	sprite_2d.texture = load(spells[spellName]["imagePath"])
+	sprite_2d.position = Vector2(0, 0)
 	
 func setCollisionShape() -> void:
 	if !collider:
 		#collider.queue_free()
 		var colliderLoader:PackedScene = load(spells[spellName]["collisionShapePath"])
-		print(spellName)
+		print(spells[spellName]["collisionShapePath"])
 		collider = colliderLoader.instantiate()
-		collider.position.x = 0
-		collider.position.y = 0
+		collider.position = Vector2(0, 0)
 		add_child(collider)
 
 func _on_reset_timer_timeout() -> void:
