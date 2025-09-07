@@ -4,6 +4,7 @@ class_name Player extends CharacterBody2D
 @onready var potion_timer: Timer = $PotionTimer
 #@onready var health_timer: Timer = $HealthTimer
 @onready var progress_bar: ProgressBar = $ProgressBar
+@onready var player_spell: Area2D = $PlayerSpell
 
 
 var potionAffecting = false
@@ -36,8 +37,11 @@ func _physics_process(delta: float) -> void:
 	#Changing the animation direction based on the direction faced.
 	if direction > 0:
 		animated_sprite_2d.flip_h = false
+		player_spell.direction = "right"
 	elif direction < 0:
 		animated_sprite_2d.flip_h = true
+		player_spell.direction = "left"
+	
 	
 	#For the animations for player movement
 	if direction == 0:
@@ -57,6 +61,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	Inventory.positionX = position.x
 	Inventory.positionY = position.y
+	
+	#Firing spells
+	if Input.is_action_just_pressed("fireSpell"):
+		player_spell.fireSpell()
+		print("Spell Fired")
 	
 	#Getting the inventory slot chosen
 	for i in range(1, 10):

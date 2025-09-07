@@ -68,4 +68,10 @@ collision_mask = 3
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -51.0
+offset_top = -73.0
+offset_right = 48.0
+offset_bottom = -46.0
+
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

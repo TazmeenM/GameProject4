@@ -1,13 +1,15 @@
-extends CharacterBody2D
+class_name Enemy extends CharacterBody2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var ray_cast_2d_right: RayCast2D = $RayCast2DRight
 @onready var ray_cast_2d_left: RayCast2D = $RayCast2DLeft
 @onready var attack_timer: Timer = $AttackTimer
+@onready var progress_bar: ProgressBar = $ProgressBar
 
 @export var enemyName: String = "enemy1"
 var direction = 0
+var health = 100
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -400.0
@@ -36,6 +38,11 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	
+	progress_bar.max_value = 100
+	progress_bar.value = health
+	if health <= 0:
+		die()
 
 	followPlayer()
 	animate()
@@ -90,3 +97,21 @@ func animate() -> void:
 
 func _on_attack_timer_timeout() -> void:
 	attacking = true
+
+
+func increaseHealth(healthIncreasedAmount: int) -> void:
+	if health + healthIncreasedAmount < 100:
+		health = health + healthIncreasedAmount
+	else:
+		health = 100
+
+
+func decreaseHealth(healthDecreasedAmount: int) -> void:
+	if health - healthDecreasedAmount > 0:
+		health = health - healthDecreasedAmount
+	else:
+		health = 0
+
+
+func die() -> void:
+	queue_free()
