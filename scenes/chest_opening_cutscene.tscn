@@ -27,4 +27,12 @@ autowrap_mode = 3
 [node name="TextTimer" type="Timer" parent="."]
 wait_time = 0.05
 
+[node name="NextLevelButton" type="Button" parent="."]
+offset_left = 650.0
+offset_top = 493.0
+offset_right = 744.0
+offset_bottom = 521.0
+text = "Next"
+
 [connection signal="timeout" from="TextTimer" to="." method="_on_text_timer_timeout"]
+[connection signal="pressed" from="NextLevelButton" to="." method="_on_next_level_button_pressed"]

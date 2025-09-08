@@ -1,25 +1,26 @@
-[gd_scene load_steps=18 format=3 uid="uid://dix6cymyucf1n"]
+[gd_scene load_steps=19 format=3 uid="uid://b61373bdokito"]
 
-[ext_resource type="Script" uid="uid://5rs3dct3ewud" path="res://scripts/level_1.gd" id="1_pa8r4"]
-[ext_resource type="Texture2D" uid="uid://bi88smalp8txm" path="res://assets/sprites/crackedBeigeBricks.png" id="2_bswci"]
-[ext_resource type="Texture2D" uid="uid://ducc81wj6axv7" path="res://assets/sprites/crackedBeigeBricksSet.png" id="3_5xbjy"]
-[ext_resource type="Texture2D" uid="uid://devfieldiialq" path="res://assets/sprites/tilemap.png" id="3_go7sj"]
-[ext_resource type="PackedScene" uid="uid://4bcsmk6gluj3" path="res://scenes/killzone.tscn" id="3_rus8k"]
-[ext_resource type="PackedScene" uid="uid://cfbjnuy57jsn1" path="res://scenes/speedPotion.tscn" id="5_fcfvj"]
-[ext_resource type="PackedScene" uid="uid://bpvjo7n2aravb" path="res://scenes/player.tscn" id="6_fcfvj"]
-[ext_resource type="PackedScene" uid="uid://bqlonekg61b38" path="res://scenes/health_potion.tscn" id="8_15mv3"]
-[ext_resource type="PackedScene" uid="uid://6to688b2j4to" path="res://scenes/inventory_panel.tscn" id="9_7gny6"]
-[ext_resource type="PackedScene" uid="uid://cnqnc6nki4poh" path="res://scenes/spell.tscn" id="10_2y5yt"]
-[ext_resource type="PackedScene" uid="uid://dnxwk6gerthcp" path="res://scenes/portal.tscn" id="13_7gny6"]
+[ext_resource type="Script" uid="uid://5rs3dct3ewud" path="res://scripts/level_1.gd" id="1_hey2k"]
+[ext_resource type="Texture2D" uid="uid://bi88smalp8txm" path="res://assets/sprites/crackedBeigeBricks.png" id="2_172wr"]
+[ext_resource type="Texture2D" uid="uid://devfieldiialq" path="res://assets/sprites/tilemap.png" id="3_g2hoc"]
+[ext_resource type="Texture2D" uid="uid://ducc81wj6axv7" path="res://assets/sprites/crackedBeigeBricksSet.png" id="4_fldb1"]
+[ext_resource type="PackedScene" uid="uid://4bcsmk6gluj3" path="res://scenes/killzone.tscn" id="5_guvtl"]
+[ext_resource type="PackedScene" uid="uid://cfbjnuy57jsn1" path="res://scenes/speedPotion.tscn" id="6_igmy8"]
+[ext_resource type="PackedScene" uid="uid://bpvjo7n2aravb" path="res://scenes/player.tscn" id="7_wdtqu"]
+[ext_resource type="PackedScene" uid="uid://6to688b2j4to" path="res://scenes/inventory_panel.tscn" id="8_7qsfm"]
+[ext_resource type="PackedScene" uid="uid://bqlonekg61b38" path="res://scenes/health_potion.tscn" id="9_bv48q"]
+[ext_resource type="PackedScene" uid="uid://cnqnc6nki4poh" path="res://scenes/spell.tscn" id="10_k22d5"]
+[ext_resource type="PackedScene" uid="uid://dnxwk6gerthcp" path="res://scenes/portal.tscn" id="11_k6a82"]
+[ext_resource type="PackedScene" uid="uid://dlfqme2m6r13n" path="res://scenes/key.tscn" id="12_172wr"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2os1m"]
-texture = ExtResource("2_bswci")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1sb0y"]
+texture = ExtResource("2_172wr")
 0:0/size_in_atlas = Vector2i(6, 6)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-48, -46, 49, -46, 48.5448, 46.2869, -47.9803, 48.5448)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_go7sj"]
-texture = ExtResource("3_go7sj")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vhnap"]
+texture = ExtResource("3_g2hoc")
 0:0/size_in_atlas = Vector2i(6, 6)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-48.1132, -47.3167, 48.1132, -47.3167, 47.4158, 47.698, -47.9803, 48.827)
@@ -37,8 +38,8 @@ texture = ExtResource("3_go7sj")
 0:6/size_in_atlas = Vector2i(2, 2)
 0:6/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7gny6"]
-texture = ExtResource("3_5xbjy")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vwfin"]
+texture = ExtResource("4_fldb1")
 0:0/size_in_atlas = Vector2i(6, 6)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-48.5448, -45.7224, 46.8513, -45.7224, 47.4158, 46.8513, -47.9803, 46.8513)
@@ -47,15 +48,15 @@ texture = ExtResource("3_5xbjy")
 6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-31.6105, -30.4816, 31.0461, -30.4816, 32.7395, 32.175, -32.175, 31.6105)
 6:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-31.0461, -31.0461, 29.9171, -30.4816, 31.6105, 32.7395, -31.6105, 31.0461)
 
-[sub_resource type="TileSet" id="TileSet_5xbjy"]
+[sub_resource type="TileSet" id="TileSet_63d2t"]
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 3
 physics_layer_1/collision_layer = 1
 physics_layer_1/collision_mask = 3
 physics_layer_2/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_2os1m")
-sources/3 = SubResource("TileSetAtlasSource_7gny6")
-sources/1 = SubResource("TileSetAtlasSource_go7sj")
+sources/0 = SubResource("TileSetAtlasSource_1sb0y")
+sources/3 = SubResource("TileSetAtlasSource_vwfin")
+sources/1 = SubResource("TileSetAtlasSource_vhnap")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5xbjy"]
 distance = -14.0
@@ -63,14 +64,14 @@ distance = -14.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2aecg"]
 size = Vector2(55, 170)
 
-[node name="Level1" type="Node2D" node_paths=PackedStringArray("player", "respawn_timer", "fireball")]
-script = ExtResource("1_pa8r4")
+[node name="Level2" type="Node2D" node_paths=PackedStringArray("player", "respawn_timer", "fireball")]
+script = ExtResource("1_hey2k")
 player = NodePath("Player")
 respawn_timer = NodePath("RespawnTimer")
 fireball = NodePath("Spell")
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_5xbjy")
+tile_set = SubResource("TileSet_63d2t")
 format = 2
 layer_0/tile_data = PackedInt32Array(1179678, 1, 0, 1179684, 1, 0, 1179690, 1, 0, 1179696, 1, 0, 1179702, 1, 0, 1179708, 1, 0, 1179714, 1, 0, 1179720, 1, 0, 1179726, 1, 0, 1179732, 1, 0, 1179672, 1, 0, 1179666, 1, 0, 786438, 1, 0, 589877, 393217, 0, 327741, 393217, 0, 65606, 393217, 0, 65619, 393217, 0, 1114210, 393217, 0, 786432, 1, 0)
 layer_1/name = "Layer1"
@@ -84,36 +85,36 @@ layer_3/tile_data = PackedInt32Array(-589838, 655361, 2, -524302, 655361, 2, -45
 layer_4/name = "Portals"
 layer_4/tile_data = PackedInt32Array(786511, 393217, 10, 393295, 393217, 4)
 
-[node name="Killzone" parent="." instance=ExtResource("3_rus8k")]
+[node name="Killzone" parent="." instance=ExtResource("5_guvtl")]
 position = Vector2(539, 433)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_5xbjy")
 
-[node name="SpeedPotion" parent="." instance=ExtResource("5_fcfvj")]
+[node name="SpeedPotion" parent="." instance=ExtResource("6_igmy8")]
 position = Vector2(572, 224)
 collision_mask = 2
 
-[node name="Player" parent="." instance=ExtResource("6_fcfvj")]
+[node name="Player" parent="." instance=ExtResource("7_wdtqu")]
 position = Vector2(475, 200)
 collision_layer = 3
 
-[node name="InventoryPanel" parent="Player" instance=ExtResource("9_7gny6")]
+[node name="InventoryPanel" parent="Player" instance=ExtResource("8_7qsfm")]
 offset_left = -193.0
 offset_top = 233.0
 offset_right = 285.0
 offset_bottom = 284.0
 
-[node name="HealthPotion" parent="." instance=ExtResource("8_15mv3")]
+[node name="HealthPotion" parent="." instance=ExtResource("9_bv48q")]
 position = Vector2(648, 220)
 
-[node name="Spell" parent="." instance=ExtResource("10_2y5yt")]
+[node name="Spell" parent="." instance=ExtResource("10_k22d5")]
 position = Vector2(781, 223)
 
 [node name="RespawnTimer" type="Timer" parent="."]
 wait_time = 0.2
 
-[node name="Portal" parent="." instance=ExtResource("13_7gny6")]
+[node name="Portal" parent="." instance=ExtResource("11_k6a82")]
 position = Vector2(1272, 171)
 sceneTeleportedTo = "dungeon_1"
 
@@ -121,18 +122,19 @@ sceneTeleportedTo = "dungeon_1"
 position = Vector2(1.5, -9)
 shape = SubResource("RectangleShape2D_2aecg")
 
-[node name="SpeedPotion2" parent="." instance=ExtResource("5_fcfvj")]
+[node name="SpeedPotion2" parent="." instance=ExtResource("6_igmy8")]
 position = Vector2(102, 129)
 
-[node name="healthPotion" parent="." instance=ExtResource("8_15mv3")]
-position = Vector2(1577, 227)
-
-[node name="Spell3" parent="." instance=ExtResource("10_2y5yt")]
+[node name="Spell3" parent="." instance=ExtResource("10_k22d5")]
 position = Vector2(1779, 210)
 
-[node name="Spell4" parent="." instance=ExtResource("10_2y5yt")]
+[node name="Spell4" parent="." instance=ExtResource("10_k22d5")]
 position = Vector2(-6, 118)
 direction = "right"
+
+[node name="Key" parent="." instance=ExtResource("12_172wr")]
+position = Vector2(1579, 227)
+keyColour = "blue"
 
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
 [connection signal="timeout" from="RespawnTimer" to="Killzone" method="_on_respawn_timer_timeout"]

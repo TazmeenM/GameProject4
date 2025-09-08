@@ -6,6 +6,7 @@ var positionX = 0
 var positionY = 0
 var imageRoot = "res://assets/sprites/"
 var slotSelected = 0
+var numberOfKeys = 0
 
 var potions = {
 	"speedPotion": {

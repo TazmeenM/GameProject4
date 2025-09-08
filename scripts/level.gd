@@ -26,8 +26,10 @@ func _process(delta: float) -> void:
 		fireball.resetPosition()
 		isResetting = true
 		print("Resetting")
-	if Inventory.health == 0 and isResetting:
+	elif Inventory.health == 0 and isResetting:
 		print("Already Resetting")
+	if Inventory.numberOfKeys == 2:
+		get_tree().change_scene_to_file("res://scenes/chest_opening_cutscene.tscn")
 		
 
 func _on_respawn_timer_timeout() -> void:
