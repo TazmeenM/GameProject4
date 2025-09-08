@@ -116,7 +116,7 @@ wait_time = 0.2
 
 [node name="Portal" parent="." instance=ExtResource("11_k6a82")]
 position = Vector2(1272, 171)
-sceneTeleportedTo = "dungeon_1"
+sceneTeleportedTo = "dungeon_2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal"]
 position = Vector2(1.5, -9)
