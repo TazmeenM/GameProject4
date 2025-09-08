@@ -27,12 +27,18 @@ layer_1/name = "Layer1"
 layer_1/tile_data = PackedInt32Array(720929, 393216, 0, 720933, 393216, 0, 1179681, 393216, 0, 1179685, 393216, 0)
 
 [node name="PlayButton" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 508.0
+offset_top = 161.0
+offset_right = 629.0
+offset_bottom = 209.0
+text = "Play"
 
 [node name="HowToPlayButton" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 508.0
+offset_top = 273.0
+offset_right = 630.0
+offset_bottom = 320.0
+text = "How to Play"
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]
