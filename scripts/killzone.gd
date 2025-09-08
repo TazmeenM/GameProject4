@@ -6,3 +6,4 @@ class_name Killzone extends Area2D
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		Inventory.decreaseHealth(100)
+		print("Player killed")

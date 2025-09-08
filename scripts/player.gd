@@ -76,8 +76,9 @@ func _physics_process(delta: float) -> void:
 		if !isAttacking:
 			isAttacking = true
 			for enemy in enemiesArray:
-				if abs(enemy.position.x - position.x) < 100:
-					enemy.decreaseHealth(10)
+				if enemy:
+					if abs(enemy.position.x - position.x) < 100:
+						enemy.decreaseHealth(10)
 			
 			attack_timer.start()
 		

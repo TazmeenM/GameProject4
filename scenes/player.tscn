@@ -104,6 +104,7 @@ position = Vector2(22, 24)
 collision_mask = 7
 
 [node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.5
 
 [connection signal="timeout" from="PotionTimer" to="." method="_on_potion_timer_timeout"]
 [connection signal="timeout" from="HealthTimer" to="." method="_on_health_timer_timeout"]

@@ -66,7 +66,6 @@ target_position = Vector2(-14, 0)
 collision_mask = 3
 
 [node name="AttackTimer" type="Timer" parent="."]
-wait_time = 2.0
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = -51.0

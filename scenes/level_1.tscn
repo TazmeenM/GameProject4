@@ -121,9 +121,6 @@ sceneTeleportedTo = "dungeon_1"
 position = Vector2(1.5, -9)
 shape = SubResource("RectangleShape2D_2aecg")
 
-[node name="Spell2" parent="." instance=ExtResource("10_2y5yt")]
-position = Vector2(980, 178)
-
 [node name="SpeedPotion2" parent="." instance=ExtResource("5_fcfvj")]
 position = Vector2(102, 129)
 

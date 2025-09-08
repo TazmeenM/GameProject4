@@ -7,6 +7,7 @@
 size = Vector2(71, 52)
 
 [node name="TreasureChest" type="Area2D"]
+collision_mask = 3
 script = ExtResource("1_ybsko")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -35,6 +36,10 @@ horizontal_alignment = 1
 [node name="ItemEarnedLabelTimer" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="ChangeSceneTimer" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="timeout" from="ItemEarnedLabelTimer" to="." method="_on_items_earned_label_timer_timeout"]
+[connection signal="timeout" from="ChangeSceneTimer" to="." method="_on_change_scene_timer_timeout"]
