@@ -43,11 +43,9 @@ func openTreasureChest() -> void:
 	Inventory.addPotions(2, "speedPotion")
 	Inventory.addPotions(4, "healthPotion")
 	Inventory.health = 100
+	get_tree().change_scene_to_file("res://scenes/chest_opening_cutscene_2.tscn")
 	
 
 func _on_collect_keys_label_timer_timeout() -> void:
 	collect_keys_label.visible = false
-
-
-func _on_change_scene_timer_timeout() -> void:
-	get_tree().change_scene_to_file("res://scenes/chest_opening_cutscene.tscn")
+	
